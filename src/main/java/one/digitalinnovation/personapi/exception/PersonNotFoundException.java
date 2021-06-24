@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class PersonNotFoundException extends Exception {
     private static final long serialVersionUID = 28495874871067123L;
 
-    public PersonNotFoundException(Long id) {
+	public PersonNotFoundException(Long id) {
         super("Person not found with ID" + id);
     }
 }

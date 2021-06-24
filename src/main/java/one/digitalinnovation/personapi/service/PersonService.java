@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import one.digitalinnovation.personapi.dto.mapper.PersonMapper;
-
 import one.digitalinnovation.personapi.dto.request.PersonDTO;
 import one.digitalinnovation.personapi.dto.response.MessageResponseDTO;
 import one.digitalinnovation.personapi.entity.Person;
@@ -46,7 +45,6 @@ public class PersonService {
 
     public PersonDTO findById(Long id) throws PersonNotFoundException {
         Person person = verifyIfExists(id);
-
         return personMapper.toDTO(person);
 
     }
@@ -55,9 +53,6 @@ public class PersonService {
         verifyIfExists(id);
         personRepository.deleteById(id);
     }
-
-
-
     private Person verifyIfExists(Long id) throws PersonNotFoundException {
         return personRepository.findById(id)
                 .orElseThrow(() -> new PersonNotFoundException(id));
